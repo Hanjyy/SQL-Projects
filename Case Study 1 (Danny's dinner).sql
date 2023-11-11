@@ -141,7 +141,7 @@ SELECT customer_id, product_name, join_date, order_date
 FROM before_purchase
 WHERE non_member_purchase = 1;
 
--- 7. What is the total items and amount spent for each member before they became a member?
+-- 8. What is the total items and amount spent for each member before they became a member?
 WITH amount_spent_before as
 							(SELECT mb.customer_id, mn.product_name, mb.join_date, sl.order_date, mn.price
 							FROM members mb
@@ -162,6 +162,7 @@ WITH customer_points AS(
 SELECT customer_id, SUM(price) AS total_revenue, SUM(CASE WHEN product_name = "sushi" THEN (price * (2)) ELSE (price + (10)) END) AS points
 FROM customer_points
 GROUP BY customer_id;
+
 -- 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?*/
 WITH points AS(
                 SELECT sl.customer_id, mb.join_date, mn.product_name, mn.price, sl.order_date, (sl.order_date - mb.join_date) AS date_difference
