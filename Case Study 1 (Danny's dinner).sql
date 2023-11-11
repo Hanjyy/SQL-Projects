@@ -60,10 +60,6 @@ SELECT * FROM members;
 
 USE dannys_diner;
 
-SELECT * FROM sales;
-SELECT * FROM menu;
-SELECT * FROM members;
-
        -- CASE STUDY QUESTIONS AND ANSWERS 
 -- Each of the following case study questions can be answered using a single SQL statement:
 
